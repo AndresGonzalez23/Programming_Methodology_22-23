@@ -6,9 +6,9 @@ public class Main {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 		
-	String images = "C://Users//Andrés//OneDrive - Universidad de Castilla-La Mancha//Escritorio//Universidad//2022-2023//Segundo Cuatrimestre//Programming Methodology//Lab//Task 1//Imagenes//320x214.png";
-	String imagesB = "C://Users//Andrés//OneDrive - Universidad de Castilla-La Mancha//Escritorio//Universidad//2022-2023//Segundo Cuatrimestre//Programming Methodology//Lab//Task 1//Imagenes//320x214_b.png";
-	String imagesQ = "C://Users//Andrés//OneDrive - Universidad de Castilla-La Mancha//Escritorio//Universidad//2022-2023//Segundo Cuatrimestre//Programming Methodology//Lab//Task 1//Imagenes//320x214_q.png";
+	String images = "C://Users//Andrés//eclipse-workspace//Programming Methodology 22-23//src//Task1//Imagenes//320X214.png";
+	String imagesB = "C://Users//Andrés//eclipse-workspace//Programming Methodology 22-23//src//Task1//Imagenes//320X214_b.png";
+	String imagesQ = "C://Users//Andrés//eclipse-workspace//Programming Methodology 22-23//src//Task1//Imagenes//320X214_q.png";
 	String imageOut;
 	imageOut=transform(images);
 	int [] histogram = Auxiliar.HistogramaImagen(imageOut);
@@ -19,7 +19,7 @@ public class Main {
 	}
 
 	public static String transform(String image) throws IOException, InterruptedException {
-		String imageOut = "C://Users//Andrés//OneDrive - Universidad de Castilla-La Mancha//Escritorio//Universidad//2022-2023//Segundo Cuatrimestre//Programming Methodology//Lab//Task 1//Imagenes//320x214_g.png";
+		String imageOut = "C://Users//Andrés//eclipse-workspace//Programming Methodology 22-23//src//Task1//Imagenes//320X214_g.png";
 		Auxiliar.GenerarImagenGrises(image, imageOut);
 		return imageOut;
 	}
