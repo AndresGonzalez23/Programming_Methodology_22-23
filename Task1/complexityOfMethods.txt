@@ -1,0 +1,129 @@
+Lab 1 Programming Methodlogy
+
+Method ImprimeHistograma:
+
+public static void ImprimeHistograma(int[] Histograma) {
+		for(int i=0;i <= Histograma.length-1; i++)      //O(n)
+			System.out.print(Histograma[i] + " ");     //0(1)
+		System.out.println();					//O(1)
+	}
+N*0(1)*O(1)= O(N)
+
+The complexity of this method is O(n), where n is the length of the input array Histograma
+The complexity of the method is linear with respect to the size of the input.
+
+
+
+
+Method HistogramaImagen:
+
+public static int[] HistogramaImagen(String Ruta) 
+			throws IOException, InterruptedException{
+
+		int[] Histograma= new int[256]; 		// Complexity: O(1)
+		for(int i=0; i<=255; i++ )        		// Complexity O(1) (constant time to initalize all array elements to 0)	
+			Histograma[i]=0;                    
+
+		File Imagen = new File(Ruta);          // O(1)
+		BufferedImage input = ImageIO.read(Imagen);
+
+		int x = input.getWidth();
+		int y = input.getHeight();
+		
+		for (int i = 0; i <= x - 1; i++)        // O(x)
+			for (int j = 0; j <= y - 1; j++)     // O(y)
+				Histograma[getGrayScale(input.getRGB(i, j))]++;
+
+		return Histograma;    
+	}   
+
+
+
+The complexity:the overall time complexity of this method is O(x * y)
+, which depends on the size of the input image.
+
+
+Method GenerarImagenGrises:
+
+
+public static void GenerarImagenGrises(String ImagenEntrada, String ImagenSalida)   
+			throws IOException, InterruptedException{
+
+		File Imagen = new File(ImagenEntrada);		//O(1)
+		BufferedImage input = ImageIO.read(Imagen);  //O(n) size of the input image        
+
+		int x = input.getWidth();				//O(1)
+		int y = input.getHeight();				//O(1)
+
+		for (int i = 0; i <= x - 1; i++) {          //O(x)
+			for (int j = 0; j <= y - 1; j++) {		//O(Y)
+				int grey_rgb = 0;				//O(1)
+				int avg=getGrayScale(input.getRGB(i, j)); //O(1)
+				for(int k = 0; k < 4; k++) {
+					grey_rgb <<= 8;
+					grey_rgb |= avg & 0xFF;
+				}
+				input.setRGB(i, j, grey_rgb);    
+			}
+		}
+
+		//La imagen en grises se graba en un fichero
+		File Imagen2 = new File(ImagenSalida);
+		ImageIO.write(input, "png", Imagen2);
+	}   
+
+Overall,the time complexity of this method is dominated by the time complexity
+of reading the input image and writing the output image,
+which is O(N).
+
+
+Method GenerarImagenOrdenandoColumnas:
+
+public static void GenerarImagenOrdenandoColumnas(String ImagenEntrada, String ImagenSalida, int Metodo)   
+			throws IOException, InterruptedException{
+		//Genera una nueva imagen ordenando cada columna de la imagen de manera ascendente (niveles de gris).
+		//Metodo 0 se ordena cada fila con el m todo de la burbuja
+		//Metodo 1 se ordena con el m todo quicksort
+
+		File Imagen = new File(ImagenEntrada);
+		BufferedImage input = ImageIO.read(Imagen);          
+  //O(1)
+
+		int x = input.getWidth();
+		int y = input.getHeight();
+  //O(1)
+		int[][] MatrizGrises=new int[x][y];
+
+		for (int i = 0; i < x - 1; i++) {
+			for (int j = 0; j < y - 1; j++) {                 
+				MatrizGrises[i][j]=getGrayScale(input.getRGB(i, j));             
+			}
+			if (Metodo==0)
+				Ordenar.burbuja(MatrizGrises[i]);    
+			else
+				Ordenar.quicksortA(MatrizGrises[i]);
+		}
+//O(XY)
+		//Una vez ordenado se genera la imagen
+
+		for (int i = 0; i <= x - 1; i++) {
+			for (int j = 0; j <= y - 1; j++) {
+				int grey_rgb = 0;
+				int avg=MatrizGrises[i][j];
+				for(int k = 0; k < 4; k++) {
+					grey_rgb <<= 8;
+					grey_rgb |= avg & 0xFF;
+				}
+				input.setRGB(i, j, grey_rgb);    
+			}
+		}
+
+		//La imagen en grises se graba en un fichero
+		File Imagen2 = new File(ImagenSalida);  O(1)
+		ImageIO.write(input, "png", Imagen2); 	O(1)
+	}   
+
+}
+
+Overall time comlpexity: O(xy * n * log(n)),using quick sort method
+If we used the bubble sort method,the time complexity would be O(xy*n^2)
