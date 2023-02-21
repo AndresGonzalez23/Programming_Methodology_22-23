@@ -6,45 +6,47 @@ public class Main {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 		
-	String []listImages = {"../Programming Methodology 22-23/src/Task1/Imagenes/320x214.png", "../Programming Methodology 22-23/src/Task1/Imagenes/640x360.png", 
-			"../Programming Methodology 22-23/src/Task1/Imagenes/640x427.png", "../Programming Methodology 22-23/src/Task1/Imagenes/1024x1024.png", 
-			"../Programming Methodology 22-23/src/Task1/Imagenes/1536x1536.png"};
+	String route = "C:/Users/Andrés/eclipse-workspace/Programming Methodology 22-23/src/Imagenes/";
+	String []listImages = {"320x214", "640x360", "640x427", "1024x1024", "1536x1536"};
+	long initTime;
+	long endTime;
+	long difference;
 	
-	String[] listTransformed = transformRelative(listImages);
-	histogram(listTransformed);
-	ordenarColumnas(listImages);
-	}
-	
-	public static String[] transformRelative(String[] listImages) throws IOException, InterruptedException {
-		String []listTransformed = {"../Programming Methodology 22-23/src/Task1/Imagenes/320x214_g.png", "../Programming Methodology 22-23/src/Task1/Imagenes/640x360_g.png", 
-				"../Programming Methodology 22-23/src/Task1/Imagenes/640x427_g.png", "../Programming Methodology 22-23/src/Task1/Imagenes/1024x1024_g.png", 
-				"../Programming Methodology 22-23/src/Task1/Imagenes/1536x1536_g.png"};
 		for (int i = 0; i<listImages.length; i++) {
-			File file = new File(listImages[i]);
-			File fileT = new File(listTransformed[i]);	
-			Auxiliar.GenerarImagenGrises(file.getPath(), fileT.getPath());
+			String input = route + listImages[i];
+		
+			initTime=System.currentTimeMillis();
+			Auxiliar.GenerarImagenGrises(input + ".png", input + "_g.png");
+			endTime=System.currentTimeMillis();
+			System.out.println("Miliseconds generating greyscale of " + listImages[i] + " = " + (difference=endTime-initTime));
+			initTime=System.currentTimeMillis();
+			int []histogram = Auxiliar.HistogramaImagen(input + "_g.png");
+			endTime=System.currentTimeMillis();
+			//initTime=System.currentTimeMillis();
+			//Auxiliar.ImprimeHistograma(histogram);
+			//endTime=System.currentTimeMillis();
+			initTime=System.currentTimeMillis();
+			Auxiliar.GenerarImagenOrdenandoColumnas(input + ".png", input + "_b.png", 0);
+			endTime=System.currentTimeMillis();
+			initTime=System.currentTimeMillis();
+			Auxiliar.GenerarImagenOrdenandoColumnas(input + ".png", input + "_q.png", 1);
+			endTime=System.currentTimeMillis();
+			
 		}
-		return listTransformed;
+	
 	}
 	
-	public static void histogram (String[] images) throws IOException, InterruptedException {
-		for(int i = 0; i < images.length; i++) {
-			int [] histogram = Auxiliar.HistogramaImagen(images[i]);
+	public static void transformRelative(String[] listImages, String route) throws IOException, InterruptedException {
+		String input;
+		String output;
+		int [] histogram;
+		for (int i = 0; i<listImages.length; i++) {
+			input = route + listImages[i] + ".png";
+			output = route + listImages[i] + "_g.png";
+			Auxiliar.GenerarImagenGrises(input,output);
+			histogram = Auxiliar.HistogramaImagen(input + "_g.png");
 			Auxiliar.ImprimeHistograma(histogram);
 		}
-	}
-	
-	public static void ordenarColumnas(String[] images) throws IOException, InterruptedException {
-		String []listBubble = {"../Programming Methodology 22-23/src/Task1/Imagenes/320x214_b.png", "../Programming Methodology 22-23/src/Task1/Imagenes/640x360_b.png", 
-				"../Programming Methodology 22-23/src/Task1/Imagenes/640x427_b.png", "../Programming Methodology 22-23/src/Task1/Imagenes/1024x1024_b.png", 
-				"../Programming Methodology 22-23/src/Task1/Imagenes/1536x1536_b.png"};
-		String []listQuick = {"../Programming Methodology 22-23/src/Task1/Imagenes/320x214_q.png", "../Programming Methodology 22-23/src/Task1/Imagenes/640x360_q.png", 
-				"../Programming Methodology 22-23/src/Task1/Imagenes/640x427_q.png", "../Programming Methodology 22-23/src/Task1/Imagenes/1024x1024_q.png", 
-				"../Programming Methodology 22-23/src/Task1/Imagenes/1536x1536_q.png"};
 		
-		for(int i = 0; i < images.length; i++) {
-			Auxiliar.GenerarImagenOrdenandoColumnas(images[i], listBubble[i], 0);
-			Auxiliar.GenerarImagenOrdenandoColumnas(images[i], listQuick[i], 1);
-		}
 	}
 }
