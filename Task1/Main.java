@@ -14,23 +14,32 @@ public class Main {
 	
 		for (int i = 0; i<listImages.length; i++) {
 			String input = route + listImages[i];
-		
+			
+			System.out.println("--- Procesing image " + listImages[i] + " ---");
 			initTime=System.currentTimeMillis();
 			Auxiliar.GenerarImagenGrises(input + ".png", input + "_g.png");
 			endTime=System.currentTimeMillis();
+			System.out.println("Greyscale image generated");
 			System.out.println("Miliseconds generating greyscale of " + listImages[i] + " = " + (difference=endTime-initTime));
+			
 			initTime=System.currentTimeMillis();
 			int []histogram = Auxiliar.HistogramaImagen(input + "_g.png");
 			endTime=System.currentTimeMillis();
-			//initTime=System.currentTimeMillis();
-			//Auxiliar.ImprimeHistograma(histogram);
-			//endTime=System.currentTimeMillis();
+			System.out.println("Histogram generated");
+			
+			initTime=System.currentTimeMillis();
+			Auxiliar.ImprimeHistograma(histogram);
+			endTime=System.currentTimeMillis();
+			
 			initTime=System.currentTimeMillis();
 			Auxiliar.GenerarImagenOrdenandoColumnas(input + ".png", input + "_b.png", 0);
 			endTime=System.currentTimeMillis();
+			System.out.println("Columns ordered with bubble");
+			
 			initTime=System.currentTimeMillis();
 			Auxiliar.GenerarImagenOrdenandoColumnas(input + ".png", input + "_q.png", 1);
 			endTime=System.currentTimeMillis();
+			System.out.println("Columns ordered with quicksort \n");
 			
 		}
 	
