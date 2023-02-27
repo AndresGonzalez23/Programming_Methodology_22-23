@@ -112,5 +112,3 @@ public class leer{
 	    	return caracter("");
 	}
 }
-
-
