@@ -1,0 +1,6 @@
+,Greyscale Conversion,Generate Histogram,Bubble Conversion,Quicksort Conversion
+320x214,135ms,16ms,77ms,49ms
+640x360,65ms,24ms,102ms,65ms
+640x427,74ms,24ms,176ms,75ms
+1024x1024,173ms,79ms,846ms,235ms
+1536x1536,549ms,146ms,2627ms,505ms
