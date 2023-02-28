@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Main {
 
-	private static final String COMMA_DELIMITER = ";";
+	private static final String COMMA_DELIMITER = ",";
 	private static final String NEW_LINE_SEPARATOR = "\n";
 	private static FileWriter csvWriter;
 	private static Scanner scan = new Scanner(System.in);
