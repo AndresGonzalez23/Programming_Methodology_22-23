@@ -12,7 +12,7 @@ public class Main {
 	
 	public static void main(String[] args) throws IOException, InterruptedException {
 		
-	String route = "C:/Users/Andres/eclipse-workspace/Programming Methodology 22-23/src/Imagenes/";
+	String route = "C:/Users/Andrés/eclipse-workspace/Programming Methodology 22-23/src/Imagenes/";
 	File csvFile = new File(route + "result.csv");
 	String []listImages = {"320x214", "640x360", "640x427", "1024x1024", "1536x1536"};
 	String[] headers = {"","Greyscale Conversion", "Generate Histogram", "Bubble Conversion", "Quicksort Conversion"};
@@ -89,7 +89,7 @@ public class Main {
 			System.out.println("Choose if you want to calculate the times in milliseconds of nanoseconds \n 1. Calculate in milliseconds"
 					+ "\n 2. Calculate in nanoseconds\n");
 			while (true) {
-	            System.out.println("Ingresa una opción (1 o 2): ");
+	            System.out.println("Choose an option (1 or 2): ");
 	            String entrada = scan.nextLine();
 
 	            if (entrada.equals("1")) {
@@ -99,7 +99,7 @@ public class Main {
 	                option = 2;
 	                break;
 	            } else {
-	                System.out.println("Entrada inválida. Solo se aceptan 1 o 2 como entrada.");
+	                System.out.println("Invalid input. Only accepts 1 or 2 as input.");
 	            }
 	        }
 			switch(option) {
