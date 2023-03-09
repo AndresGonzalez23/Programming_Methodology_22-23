@@ -12,6 +12,16 @@ public class Main {
 	
 	public static void main(String[] args) throws IOException, InterruptedException {
 		
+	/**********************************************************************************************************************************************************************************
+	 * 
+	 * Class name: Main 
+	 * 
+	 * Class description: Container of the main method and some methods related to the .csv file. In order to make the program work you just have to change
+	 * the route variable to the route of the foulder where the images are stored in your computer. As long as they are the same images
+	 * 
+	 * *********************************************************************************************************************************************************************************/
+		
+		
 	String route = "C:/Users/Andres/eclipse-workspace/Programming Methodology 22-23/src/Imagenes/";
 	File csvFile = new File(route + "result.csv");
 	String []listImages = {"320x214", "640x360", "640x427", "1024x1024", "1536x1536"};
@@ -72,6 +82,14 @@ public class Main {
 	}
 	
 	public static void writeCSV(String[] data, File csvFile) throws IOException {
+		
+		 /**********************************************************************************************************************************************************************************
+		 * Method name: writeCSV
+		 * 
+		 * Description of the method: Method that helps us to create the .csv file and write the first line of it
+		 *
+		 * *********************************************************************************************************************************************************************************/
+		
 		csvWriter = new FileWriter(csvFile);
 		
 		for(int i = 0; i < data.length; i++) {
@@ -84,6 +102,17 @@ public class Main {
 	}
 	
 	public static String[] chooseMilliorNano() {
+		
+		/**********************************************************************************************************************************************************************************
+		 * Method name: chooseMilliorNano
+		 * 
+		 * Description of the method: This method will ask the user if he prefers milliseconds or nanoseconds calculation. Depending of the election
+		 * it will return an array that will help us to do the calculations in the main class, avoiding as much repetition of code as we could. 
+		 * If the user choose millis it will return a 1 to multiply it by the currentTimeMillis() result and if the user chooses ns it will return an array
+		 * with 1 million, because 1 millisecond is 1 million nanoseconds and we will multiply that for the currentTimeMillis() result to obtain ns
+		 *
+		 * *********************************************************************************************************************************************************************************/
+		
 		String[] elections = {"",""};
 		int option;
 			System.out.println("Choose if you want to calculate the times in milliseconds of nanoseconds \n 1. Calculate in milliseconds"
