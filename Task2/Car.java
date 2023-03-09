@@ -1,6 +1,13 @@
 package Task2;
 
 public class Car {
+	
+	/**********************************************************************************************************************************************************************************
+	* Class name: Car
+	* 
+	* Class description: Car that we use for construct the Car objects, because we use object oriented programming, with all its setters and getters. 
+	**********************************************************************************************************************************************************************************/
+	
     private String model;
     private String fuel_Type;
     private double number_Seat;
