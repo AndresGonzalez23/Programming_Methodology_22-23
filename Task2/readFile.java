@@ -1,23 +1,22 @@
 package Task2;
 
 import java.io.*;
+import java.util.*;
 
 public class readFile {
 	
-	public static void readCSV(String route, String separador) {
-        try (BufferedReader br = new BufferedReader(new FileReader(route + "cars_dataset.csv"))) {
+	public static LinkedList<Car> readCSV(String route, String separador) {
+		LinkedList<Car> cars = new LinkedList<>();
+		try (BufferedReader br = new BufferedReader(new FileReader(route + "cars_dataset.csv"))) {
             String linea;
             while ((linea = br.readLine()) != null) {
                 String[] datos = linea.split(separador);
-                // aquí puedes hacer lo que quieras con los datos de cada fila
-                // por ejemplo, imprimirlos en la consola
-                for (String dato : datos) {
-                    System.out.print(dato + " ");
-                }
-                System.out.println();
+                Car car = new Car(datos[0], datos[1], Double.parseDouble(datos[2]), datos[3], Double.parseDouble(datos[4]), Double.parseDouble(datos[5]));
+                cars.add(car);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+		return cars;
     }
 }
