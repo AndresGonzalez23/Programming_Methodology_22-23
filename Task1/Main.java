@@ -5,23 +5,22 @@ import java.util.*;
 
 public class Main {
 
+	/**********************************************************************************************************************************************************************************
+	 * 
+	 * Class name: Main 
+	 * 
+	 * Class description: Container of the main method and some methods related to the .csv file. In order to make the program work you just have to change
+	 * the route variable to the route of the folder where the images are stored in your computer. As long as they are the same images
+	 * 
+	 * *********************************************************************************************************************************************************************************/
+	
 	private static final String COMMA_DELIMITER = ";";
 	private static final String NEW_LINE_SEPARATOR = "\n";
 	private static FileWriter csvWriter;
 	private static Scanner scan = new Scanner(System.in);
 	
 	public static void main(String[] args) throws IOException, InterruptedException {
-		
-	/**********************************************************************************************************************************************************************************
-	 * 
-	 * Class name: Main 
-	 * 
-	 * Class description: Container of the main method and some methods related to the .csv file. In order to make the program work you just have to change
-	 * the route variable to the route of the foulder where the images are stored in your computer. As long as they are the same images
-	 * 
-	 * *********************************************************************************************************************************************************************************/
-		
-		
+			
 	String route = "C:/Users/Andres/eclipse-workspace/Programming Methodology 22-23/src/Imagenes/";
 	File csvFile = new File(route + "result.csv");
 	String []listImages = {"320x214", "640x360", "640x427", "1024x1024", "1536x1536"};
