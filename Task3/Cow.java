@@ -32,9 +32,13 @@ public class Cow implements Comparable<Cow> {
     
     @Override
     public int compareTo(Cow other) {
-        double myRatio = milkProduced / neccesarySpace;
-        double otherRatio = other.milkProduced / other.neccesarySpace;
-        return Double.compare(otherRatio, myRatio);
+        if(this.milkProduced > other.milkProduced) {
+        	return -1;
+        }else if(this.milkProduced < other.milkProduced) {
+        	return 1;
+        }else {
+        	return 0;
+        }
     }
 
 }
