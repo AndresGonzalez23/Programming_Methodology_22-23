@@ -51,8 +51,7 @@ public class Main {
 	                scanner.next();
 	            }
 	        }
-	        scanner.close();
-		
+	        
 		return numMetters;
 	}
 	
@@ -74,7 +73,9 @@ public class Main {
 				System.out.println("The number of cows you want to sell is bigger than the cows you have available");
 			}
 		}
+		
 		return numberOfCowsToSell;
+		
 	}
 	
 	public static LinkedList<Cow> quicksortDescendant(LinkedList<Cow> cows) {
