@@ -1,29 +1,24 @@
 package Task4;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.LinkedList;
-
-import Task3.Cow;
+import java.io.*;
+import java.util.*;
 
 public class readFile {
-
+	
 	/**********************************************************************************************************************************************************************************
 	* Class name: Main 
 	* 
 	* Class description: Class that we use to read the .csv file with the method down below
 	**********************************************************************************************************************************************************************************/
 	
+	/**********************************************************************************************************************************************************************************
+	 * Method name: readCSV
+	 * 
+	 * Description of the method: This method is used to read all the data from the given .csv file and storing each car element in a Linked List
+	 *
+	 **********************************************************************************************************************************************************************************/	
+	
 	public static LinkedList<Cow> readCSV(String route, String separador) {
-		
-		/**********************************************************************************************************************************************************************************
-		 * Method name: readCSV
-		 * 
-		 * Description of the method: This method is used to read all the data from the given .csv file and storing each car element in a Linked List
-		 *
-		 **********************************************************************************************************************************************************************************/	
-		
 		
 		LinkedList<Cow> cows = new LinkedList<>();
 		try (BufferedReader br = new BufferedReader(new FileReader(route + "CowsInformation.csv"))) {

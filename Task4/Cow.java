@@ -1,6 +1,13 @@
 package Task4;
 
-public class Cow implements Comparable<Cow>{
+/**********************************************************************************************************************************************************************************
+* Class name: Cow
+* 
+* Class description: Cow that we use for construct the Cow objects, because we use object oriented programming, with all its setters and getters. 
+**********************************************************************************************************************************************************************************/
+
+public class Cow implements Comparable<Cow> {
+	
 	public int code;
 	private int neccesarySpace;
 	private double foodConsumption;
@@ -39,4 +46,5 @@ public class Cow implements Comparable<Cow>{
         	return 0;
         }
     }
+
 }
