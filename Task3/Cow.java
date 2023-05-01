@@ -1,4 +1,10 @@
 package Task3;
+	
+/**********************************************************************************************************************************************************************************
+* Class name: Cow
+* 
+* Class description: Cow that we use for construct the Cow objects, because we use object oriented programming, with all its setters and getters. 
+**********************************************************************************************************************************************************************************/
 
 public class Cow implements Comparable<Cow> {
 	
